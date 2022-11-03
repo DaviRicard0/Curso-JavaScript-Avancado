@@ -10,7 +10,6 @@ const simbolos = [
 
 
 fn.lerDiretorio(caminho)
-    //.then(arquivos => arquivos.filter(arq => arq.includes(".srt")))
     .then(fn.elementosSRT('.srt'))
     .then(fn.lerArquivos)
     .then(fn.juntarConteudo)

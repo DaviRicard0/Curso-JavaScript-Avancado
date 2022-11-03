@@ -79,6 +79,18 @@ const ordernarPorNumero = (attr, order = 'asc') => {
     }
 }
 
+const composicao = (...fns) => {
+    return valor => {
+        return fns.reduce(async (acc,fn)=>{
+            if (Promise.resolve(acc) === acc) {
+                return fn(await acc);
+            }else{
+                return fn(acc);
+            }
+        },valor); 
+    }
+}
+
 module.exports = {
     lerDiretorio,
     lerArquivos,
@@ -90,5 +102,6 @@ module.exports = {
     juntarConteudo,
     separarPor,
     agruparPalavras,
-    ordernarPorNumero
+    ordernarPorNumero,
+    composicao
 }
